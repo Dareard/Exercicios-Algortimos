@@ -1,0 +1,44 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+ int main() {
+ 	float salario = 0;
+ 	float comissao = 0.15;
+ 	int vendas = 0;
+
+ 	float *valoresVendas;
+ 	
+ 	printf("Digite o salario fixo do vendedor: ");
+ 	scanf("%f", &salario);
+ 	
+ 	
+ 	printf("\nDigite a quantidade de vendas: ");
+ 	scanf("%d", &vendas);
+ 	
+ 	if(salario < 0 || vendas < 0) {
+ 		printf("Os valores digitados nao podem ser negativos!\n");
+ 		return 0;
+	 }
+	 
+ 	valoresVendas = (float*) malloc(vendas * sizeof(float));
+ 	 
+ 	for(int k = 0; k < vendas; k++) {
+ 		printf("\nDigite o valor da %d venda: ", k+1);
+ 		scanf("%f", &valoresVendas[k]);
+	 }
+	 
+	float saldoPorVendas = 0;
+	
+	for(int k = 0; k < vendas; k++) {
+		saldoPorVendas += (valoresVendas[k] * comissao);
+	}
+	 
+ 	printf("\nSaldo acumulado por vendas: R$%.2f\n", saldoPorVendas);
+ 	
+ 	printf("\nSalario final do funcionario: R$%.2f", (salario + saldoPorVendas));
+ 	
+	free(valoresVendas);
+ 	
+ 	return 0;
+ 	
+ }
