@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+	/* Valor de comissão em cima do salário fixo */
+	float salario = 0; 
+	float comissao = 0.15;
+	
+	int vendas = 0;
+	
+	printf("Digite o salario do vendedor: ");
+	scanf("%f", &salario);
+	
+	printf("\nDigite a quantidade de vendas feitas pelo vendedor: ");
+	scanf("%d", &vendas);
+
+	if(salario < 0 || vendas < 0) {
+		printf("Os valores digitados nao podem ser negativos!");
+		return 0;
+	}
+	
+	float saldoPorVendas = (salario * comissao) * vendas;
+	float salarioFinal = salario += saldoPorVendas;
+	
+	printf("Comissao ganha no mes: R$%.1f\n", saldoPorVendas);
+	printf("\nO salario final do funcionario foi: R$%.1f", salarioFinal);
+	return 0;
+}
